@@ -1,4 +1,4 @@
-# flutter_networking_persistence
+# Flutter Networking Persistence Demo
 
 A new Flutter project.
 
