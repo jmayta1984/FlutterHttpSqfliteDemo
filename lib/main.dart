@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_networking_persistence/movie_list.dart';
+import 'package:flutter_networking_persistence/ui/movie_list.dart';
 
 void main() {
   runApp(MyMovies());

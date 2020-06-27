@@ -44,5 +44,10 @@ class Movie {
     releaseDate = json['release_date'];
   }
 
-  
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+    };
+  }
 }

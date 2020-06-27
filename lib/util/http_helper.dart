@@ -7,9 +7,10 @@ class HttpHelper {
   final String urlKey = 'api_key=3cae426b920b29ed2fb1c0749f258325';
   final String urlBase = 'https://api.themoviedb.org/3/movie';
   final String urlUpcoming = '/upcoming?';
+  final String urlPage = '&page=';
 
-  Future<List> getUpcoming() async {
-    final String upcoming = urlBase + urlUpcoming + urlKey;
+  Future<List> getUpcoming(String page) async {
+    final String upcoming = urlBase + urlUpcoming + urlKey + urlPage + page;
     print(upcoming);
     http.Response result = await http.get(upcoming);
 
