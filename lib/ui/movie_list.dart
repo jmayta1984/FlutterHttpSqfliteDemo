@@ -16,17 +16,13 @@ class _MovieListState extends State<MovieList> {
   HttpHelper helper;
   ScrollController _scrollController;
 
-  Future initialize() async {
-    loadMore();
-  }
-
   @override
   void initState() {
     helper = HttpHelper();
     page = 1;
     loading = true;
     movies = List();
-    initialize();
+    loadMore();
     initScrollController();
     super.initState();
   }
@@ -46,9 +42,9 @@ class _MovieListState extends State<MovieList> {
     );
   }
 
-  void loadMore() {
-    helper.getUpcoming(page.toString()).then((value) {
-      movies += value;
+  Future loadMore() async {
+    List result = await helper.getUpcoming(page.toString());
+      movies += result;
 
       setState(() {
         moviesCount = movies.length;
@@ -59,7 +55,6 @@ class _MovieListState extends State<MovieList> {
       if (movies.length % 20 > 0) {
         loading = false;
       }
-    });
   }
 
   void initScrollController() {
@@ -98,8 +93,8 @@ class _MovieRowState extends State<MovieRow> {
   }
 
   @override
-  void setState(fn){
-    if (mounted){
+  void setState(fn) {
+    if (mounted) {
       super.setState(fn);
     }
   }
